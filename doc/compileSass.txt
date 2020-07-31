@@ -1,0 +1,12 @@
+Setup
+1. Navigate to project folder
+2. Execute: "npm init" to give npm control over project files
+3. Confirm all queries with default values
+4. Execute: "npm install bootstrap --save" to install bootstrap
+5. Execute: "npm install -g sass" to install Sass
+
+Compile SCSS code
+1. create "main.scss" file
+2. customize the SCSS
+3. Execute: "sass main.scss main.css" to compile scss code to css
+4. Import main.css stylessheet in you html

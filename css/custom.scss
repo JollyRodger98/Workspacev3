@@ -1,0 +1,20 @@
+$theme-colors: (
+    "primary": #4d4d4d,
+    "secondary": #999999,
+  );
+  
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/*JollyRodger customized bootstrap css classes*/
+.navbar .dropdown-menu {
+  background-color: #4d4d4d;
+}
+
+.navbar .dropdown.show a:hover { 
+  background-color: #4d4d4d;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+  .navbar .dropdown.show a { 
+  color: rgba(255, 255, 255, 0.5);
+}

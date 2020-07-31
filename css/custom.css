@@ -1,0 +1,25 @@
+@media (min-width: 993px){
+
+    #cardimg{
+        transition: opacity 200ms;
+    }
+    
+    #cardimg:hover{
+        opacity: 0.75;
+    }
+
+}
+
+.navbar .dropdown-menu {
+    background-color: #4d4d4d;
+  }
+  
+  .navbar .dropdown.show a:hover { 
+    background-color: #4d4d4d;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+    .navbar .dropdown.show a { 
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
