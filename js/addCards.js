@@ -19,14 +19,17 @@ $(document).ready(function() {
     }
 
     var page = String(window.location.pathname).split("/").pop();
+    var jsonLinkList = new Array();
+    var mainlinkList = new Array();
     var utilityList = new Array();
     var gamingList = new Array();
     var programmingList = new Array();
     var mangasList = new Array();
     var booksList = new Array();
     var novelsList = new Array();
-    var jsonLinkList = new Array();
-    var mainlinkList = new Array();
+    var streamingList = new Array();
+    var otherList = new Array();
+
     
     jsonLinkList = (function(){
         var json = null;
@@ -60,6 +63,12 @@ $(document).ready(function() {
             } else if(item.category.sub == 'Novels'){
                 novelsList.push(item);
             }
+        } else if (item.category.main == 'Movies' && page == 'movies.html'){
+            if (item.category.sub == 'Streaming'){
+                streamingList.push(item);
+            } else if(item.category.sub == 'Other'){
+                otherList.push(item);
+            }
         }
     });
     
@@ -68,6 +77,8 @@ $(document).ready(function() {
         mainlinkList.push(utilityList, programmingList, gamingList)
     }else if (page == 'books.html'){
         mainlinkList.push(mangasList, booksList, novelsList)
+    }else if (page == 'movies.html'){
+        mainlinkList.push(streamingList, otherList)
     }
     
     $.each(mainlinkList, function(i, linkList){
