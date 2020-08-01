@@ -46,10 +46,10 @@
     {"category": {"pos": "11", "main": "Books", "sub": "Novels"}, "name": "MistyCloud Translation", "link": "http://www.mistycloudtranslations.com/", "placement": "booksNovels", "img": "img/thumbnails/mistycloud_translations.jpg"},
 
 
-    {"category": {"pos": "01", "main": "Movies", "sub": "Streaming"}, "name": "Netflix", "link": "https://www.netflix.com/browse", "placement": "moviesStreaming", "img": "img/thumbnails/"},
-    {"category": {"pos": "02", "main": "Movies", "sub": "Streaming"}, "name": "Disney+", "link": "https://www.disneyplus.com/de-de/home", "placement": "moviesStreaming", "img": "img/thumbnails/"},
-    {"category": {"pos": "03", "main": "Movies", "sub": "Streaming"}, "name": "YouTube", "link": "https://www.youtube.com/", "placement": "moviesStreaming", "img": "img/thumbnails/"},
-    {"category": {"pos": "04", "main": "Movies", "sub": "Streaming"}, "name": "Plex", "link": "https://app.plex.tv/desktop", "placement": "moviesStreaming", "img": "img/thumbnails/"},
-    {"category": {"pos": "01", "main": "Movies", "sub": "Other"}, "name": "IMDb", "link": "https://www.imdb.com/", "placement": "moviesOther", "img": "img/thumbnails/"}
+    {"category": {"pos": "01", "main": "Movies", "sub": "Streaming"}, "name": "Netflix", "link": "https://www.netflix.com/browse", "placement": "moviesStreaming", "img": "img/thumbnails/netflix.jpg"},
+    {"category": {"pos": "02", "main": "Movies", "sub": "Streaming"}, "name": "Disney+", "link": "https://www.disneyplus.com/de-de/home", "placement": "moviesStreaming", "img": "img/thumbnails/disney+.jpg"},
+    {"category": {"pos": "03", "main": "Movies", "sub": "Streaming"}, "name": "YouTube", "link": "https://www.youtube.com/", "placement": "moviesStreaming", "img": "img/thumbnails/youtube.jpg"},
+    {"category": {"pos": "04", "main": "Movies", "sub": "Streaming"}, "name": "Plex", "link": "https://app.plex.tv/desktop", "placement": "moviesStreaming", "img": "img/thumbnails/plex.jpg"},
+    {"category": {"pos": "01", "main": "Movies", "sub": "Other"}, "name": "IMDb", "link": "https://www.imdb.com/", "placement": "moviesOther", "img": "img/thumbnails/imdb.jpg"}
 
 ]
