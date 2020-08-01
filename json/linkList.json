@@ -9,7 +9,7 @@
     {"category": {"pos": "04", "main": "Technology", "sub": "Utility"}, "name": "Google", "link": "https://www.google.ch/", "placement": "techUtility", "img": "img/thumbnails/google.jpg"},
     {"category": {"pos": "01", "main": "Technology", "sub": "Utility"}, "name": "Digitec", "link": "https://www.digitec.ch/", "placement": "techUtility", "img": "img/thumbnails/digitec.jpg"},
     {"category": {"pos": "01", "main": "Technology", "sub": "Programming"}, "name": "W3Schools", "link": "https://www.w3schools.com/", "placement": "techProgramming", "img": "img/thumbnails/w3school.jpg"},
-    {"category": {"pos": "02", "main": "Technology", "sub": "Programming"}, "name": "GitHub", "link": "https://github.com/JollyRodger98/Random_Developments", "placement": "techProgramming", "img": "img/thumbnails/github.jpg"},
+    {"category": {"pos": "02", "main": "Technology", "sub": "Programming"}, "name": "GitHub", "link": "https://github.com/JollyRodger98?tab=repositories", "placement": "techProgramming", "img": "img/thumbnails/github.jpg"},
 
 
     {"category": {"pos": "01", "main": "Books", "sub": "Mangas"}, "name": "Mangakakalot", "link": "https://mangakakalot.com/manga_list?type=latest&category=all&state=all&page=1", "placement": "booksMangas", "img": "img/thumbnails/mangakakalot.jpg"},
