@@ -7,14 +7,15 @@ $(document).ready(function(){
             crossDomain: true,
             complete: function(response){
                 data = response.responseJSON;
-                status = response.status;
+                statusCode = response.status;
+                statusText = response.statusText;
             }
         });
-        return {data: data, status: status};
+        return {'data': data, 'status': {'code': statusCode, 'text': statusText}};
     }
 
-    var data = APIcall("https://jsonplaceholder.typicode.com/users")
-    console.log(data);
+    var response = APIcall("https://jsonplaceholder.typicode.com/users")
+    console.log(response);
 
 
 });
