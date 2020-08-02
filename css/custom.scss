@@ -18,3 +18,10 @@ $theme-colors: (
   .navbar .dropdown.show a { 
   color: rgba(255, 255, 255, 0.5);
 }
+
+.table-dark{
+  background-color: #4d4d4d;
+}
+.table-dark th, .table-dark td, .table-dark thead th{
+  border-color:#999999;
+}

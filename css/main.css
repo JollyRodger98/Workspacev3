@@ -9909,7 +9909,7 @@ h3 {
     border-color: #dee2e6;
   }
 }
-/*JollyRodger customized bootstrap css classes*/
+/*JollyRodger98 customized bootstrap css classes*/
 .navbar .dropdown-menu {
   background-color: #4d4d4d;
 }
@@ -9921,6 +9921,14 @@ h3 {
 
 .navbar .dropdown.show a {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.table-dark {
+  background-color: #4d4d4d;
+}
+
+.table-dark th, .table-dark td, .table-dark thead th {
+  border-color: #999999;
 }
 
 /*# sourceMappingURL=main.css.map */
