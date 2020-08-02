@@ -1,5 +1,4 @@
-var testHead = $('<tr>').append(
-    $('<th>').text('id'),
-    $('<th>').text('name'),
-    $('<th>').text('username')
+var weatherHead = $('<tr>').append(
+    $('<th>').text('City'),
+    $('<th>').text('Temperature')
 );
