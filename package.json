@@ -1,0 +1,27 @@
+{
+  "name": "03_workspacev3",
+  "version": "1.0.0",
+  "description": "Personal Workspace",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Hello World\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JollyRodger98/Workspacev3.git"
+  },
+  "author": "Tim Waldesbuehl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JollyRodger98/Workspacev3/issues"
+  },
+  "homepage": "https://github.com/JollyRodger98/Workspacev3#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
