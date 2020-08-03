@@ -2,8 +2,8 @@ $(document).ready(function(){
 
     $( "#buttonWeather" ).click(function() {
 
-        $("#mainResultTableBody tr").remove();
-        var response = APIcall("https://api.openweathermap.org/data/2.5/weather?id=2661861&appid=3110630bf875a745670e7c443681ebed&units=metric")
+        $("#mainResultTable tr").remove();
+        var response = APIcallGET("https://api.openweathermap.org/data/2.5/weather?id=2661861&appid=3110630bf875a745670e7c443681ebed&units=metric")
         //weatherHead.appendTo('#mainResultTableHead');
         var $tr = $('<tr>').append(
             $('<th scope="row">').text('City:'),
@@ -33,6 +33,22 @@ $(document).ready(function(){
         var $tr = $('<tr>').append(
             $('<th scope="row">').text('Sunset/Sunrise:'),
             $('<td>').text(convertUnixTime(response.data.sys.sunset) + ' / ' + convertUnixTime(response.data.sys.sunrise)),
+        ).appendTo('#mainResultTableBody');
+        
+    });
+
+    $( "#buttonJokes" ).click(function() {
+
+        $("#mainResultTable tr").remove();
+        var header = {
+            "x-rapidapi-host": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com",
+            "x-rapidapi-key": "7d5323bd70msh979ace3c125a072p11f7d8jsn678c4a4623f9",
+            "accept": "application/json"
+        }
+        var response = APIcallGET("https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random", header)
+        jokeHead.appendTo('#mainResultTableHead');
+        var $tr = $('<tr>').append(
+            $('<td>').text(response.data.value),
         ).appendTo('#mainResultTableBody');
         
     });
