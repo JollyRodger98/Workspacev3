@@ -1,8 +1,10 @@
-function APIcall(url){
+function APIcallGET(url, headers=null){
     $.ajax({
         url: url,
         async: false,
         crossDomain: true,
+        method: 'GET',
+        headers: headers,
         complete: function(response){
             data = response.responseJSON;
             statusCode = response.status;
