@@ -3,7 +3,6 @@ $(document).ready(function(){
     $( "#buttonWeather" ).click(function() {
         $("#mainResultTable tr").remove();
         var response = APIcallGET("https://api.openweathermap.org/data/2.5/weather?id=2661861&appid=3110630bf875a745670e7c443681ebed&units=metric")
-        //weatherHead.appendTo('#mainResultTableHead');
         var $tr = $('<tr>').append(
             $('<th scope="row">').text('City:'),
             $('<td>').text(response.data.name),
@@ -79,6 +78,27 @@ $(document).ready(function(){
                 var $tr = $('<tr>').append(
                     $('<td>').text(item.novelTitle),
                     $('<td>').html('<a class="btn btn-sm btn-secondary text-light" href="' + item.chapterLink + '" target="_blank">' + item.chapterTitle + '</a>'),
+                ).appendTo('#mainResultTableBody');
+            });
+        });
+    });
+
+    $( "#buttonTopMovies" ).click(function() {
+        $("#mainResultTable tr").remove();
+        topMoviesHead.appendTo('#mainResultTableHead');
+        var responsePage1 = APIcallGET('https://api.themoviedb.org/3/trending/movie/week?api_key=99dc569b01d5c0a096d15b2dde2633b8')
+        var responsePage2 = APIcallGET('https://api.themoviedb.org/3/trending/movie/week?api_key=99dc569b01d5c0a096d15b2dde2633b8&page=2')
+        var responseAllPages = []
+        responseAllPages.push(responsePage1.data.results, responsePage2.data.results)
+        console.log(responseAllPages)
+        var counter = 1;
+        $.each(responseAllPages, function(j, list){
+            $.each(list, function(i, item){
+                var $tr = $('<tr>').append(
+                    $('<td>').text(counter++ + '.'),
+                    $('<td class="p-1" style="width:7rem;">').html('<a href="https://www.themoviedb.org/movie/' + item.id + '" target="_blank"><img class="img-thumbnail" src="https://image.tmdb.org/t/p/w92' + item.poster_path + '"></a>'),
+                    $('<td>').html('<h5>' + item.title + '</h5>'),
+                    $('<td>').text(item.overview),
                 ).appendTo('#mainResultTableBody');
             });
         });
