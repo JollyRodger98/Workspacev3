@@ -82,3 +82,28 @@ function RSStoJSON(data){
     var jsonObj = JSON.parse(JSON.stringify(xmlToJson(xmlDoc)));
     return jsonObj
 }
+
+function parseMangadex(jsonObj){
+    var feed = jsonObj.rss.channel.item
+    var newFeed = [];
+    $.each(feed, function(i, item){
+        var pubDate = item.pubDate['#text'].match(/\d\d:\d\d:\d\d/)[0];
+        pubDate = pubDate.split(':')
+        pubDate.pop()
+        pubDate[0] = parseInt(pubDate[0]) + 2;
+        pubDate = pubDate.join(':');
+
+        var entry = {
+            'chapterTitle': item.title["#text"],
+            'mangaTitle': item.title['#text'].split(/ - /)[0],
+            'mangaLink': item.mangaLink["#text"],
+            'chapterLink': item.guid["#text"],
+            'date': item.pubDate['#text'],
+            'time': pubDate,
+            'mangaID': item.mangaLink['#text'].split('/')[4],
+        }
+
+        newFeed.push(entry);
+    });
+    return newFeed
+}

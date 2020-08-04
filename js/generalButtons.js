@@ -53,43 +53,29 @@ $(document).ready(function(){
         
     });     
 
-    function parseMangadex(jsonObj){
-        var feed = jsonObj.rss.channel.item
-        var newFeed = [];
-
-        $.each(feed, function(i, item){
-
-            var entry = {
-                'title': item.title["#text"],
-                'mangaLink': item.mangaLink["#text"],
-                'chapterLink': item.guid["#text"],
-                'date': item.pubDate['#text']
-            }
-
-            newFeed.push(entry);
-        });
-        return newFeed
-    }
 
 
     $( "#buttonMangdex" ).click(function() {
 
         $("#mainResultTable tr").remove();
+        mangadexHead.appendTo('#mainResultTableHead');
         fetch('https://mangadex.org/rss/sQF2apzwyqSmWcTfVG7MY4nb8P9EtAUZ')
         .then(response => response.text())
         .then(data => {
             var jsonObj = RSStoJSON(data)
             var feed = parseMangadex(jsonObj)
+            $.each(feed, function(i, item){
+                //console.log(item)
+                var $tr = $('<tr>').append(
+                    $('<td>').html('<a href="' + item.mangaLink + '" target="_blank"><img src="https://mangadex.org/images/manga/' + item.mangaID + '.thumb.jpg"></a>'),
+                    $('<td>').html('<h5>' + item.mangaTitle + '</h5><a class="btn btn-secondary btn-sm text-light" href="' + item.chapterLink + '" target="_blank">' + item.chapterTitle + '</a>'),
+                    $('<td>').text(item.time),
+                ).appendTo('#mainResultTableBody');
+            });
         });
                        
         /*
-        jokeHead.appendTo('#mainResultTableHead');
 
-        $.each(response.data.items, function(i, item){
-            var $tr = $('<tr>').append(
-                $('<td>').text(item.title),
-            ).appendTo('#mainResultTableBody');
-        });
         */
         
     });
