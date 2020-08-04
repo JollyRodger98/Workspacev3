@@ -65,34 +65,16 @@ $(document).ready(function(){
             var jsonObj = RSStoJSON(data)
             var feed = parseMangadex(jsonObj)
             $.each(feed, function(i, item){
-                //console.log(item)
                 var $tr = $('<tr>').append(
                     $('<td>').html('<a href="' + item.mangaLink + '" target="_blank"><img src="https://mangadex.org/images/manga/' + item.mangaID + '.thumb.jpg"></a>'),
-                    $('<td>').html('<h5>' + item.mangaTitle + '</h5><a class="btn btn-secondary btn-sm text-light" href="' + item.chapterLink + '" target="_blank">' + item.chapterTitle + '</a>'),
+                    $('<td>').html('<u><h5>' + item.mangaTitle + '</h5></u><a class="btn btn-secondary btn-sm text-light" href="' + item.chapterLink + '" target="_blank">' + item.chapterTitle + '</a>'),
                     $('<td>').text(item.time),
                 ).appendTo('#mainResultTableBody');
             });
         });
-                       
-        /*
-
-        */
-        
+                               
     });
 
-    /*
-    $( "" ).click(function() {
-        $("#mainResultTableBody tr").remove();
-        var response = APIcall("")
-        console.log(response);
-        weatherHead.appendTo('#mainResultTableHead');
-        $.each(response.data, function(i, item) {
-        var $tr = $('<tr>').append(
-            $('<td>').text(item.id),
-            $('<td>').text(item.name),
-        ).appendTo('#mainResultTableBody');
-        });
-    });
-    */
+    
 
 });
