@@ -80,11 +80,11 @@ function xmlToJson(xml) {
 function RSStoJSON(data){
     var xmlDoc = new window.DOMParser().parseFromString(data, "text/xml")
     var jsonObj = JSON.parse(JSON.stringify(xmlToJson(xmlDoc)));
+    jsonObj = jsonObj.rss.channel.item
     return jsonObj
 }
 
-function parseMangadex(jsonObj){
-    var feed = jsonObj.rss.channel.item
+function parseMangadex(feed){
     var newFeed = [];
     $.each(feed, function(i, item){
         var pubDate = item.pubDate['#text'].match(/\d\d:\d\d:\d\d/)[0];
