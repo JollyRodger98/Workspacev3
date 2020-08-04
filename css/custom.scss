@@ -1,7 +1,14 @@
+/*
 $theme-colors: (
-    "primary": #4d4d4d,
-    "secondary": #999999,
+    "primary": #00093b,
+    "secondary": #72a0c1,
   );
+*/
+
+$primary:#00093b;
+$secondary: #72a0c1;
+$table-dark-bg: #00093b;
+$table-dark-border-color: #72a0c1;
 
 /*
 @import "../node_modules/bootstrap/scss/functions";
@@ -28,21 +35,14 @@ $theme-colors: (
 
 /*JollyRodger98 customized bootstrap css classes*/
 .navbar .dropdown-menu {
-  background-color: #4d4d4d;
+  background-color: $primary;
 }
 
 .navbar .dropdown.show a:hover { 
-  background-color: #4d4d4d;
+  background-color: $primary;
   color: rgba(255, 255, 255, 0.75);
 }
 
   .navbar .dropdown.show a { 
   color: rgba(255, 255, 255, 0.5);
-}
-
-.table-dark{
-  background-color: #4d4d4d;
-}
-.table-dark th, .table-dark td, .table-dark thead th{
-  border-color:#999999;
 }
