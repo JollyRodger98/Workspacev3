@@ -16,7 +16,7 @@ $(document).ready(function(){
 
         var $tr = $('<tr>').append(
             $('<th scope="row" class="align-middle">').text('Weather:'),
-            $('<td>').html(`<img id="wicon" src="http://openweathermap.org/img/w/${String(response.data.weather[0].icon)}.png" alt="Weather icon"> ${response.data.weather[0].main} (${response.data.weather[0].description})`),
+            $('<td>').html(`<img id="wicon" src="http://openweathermap.org/img/w/${response.data.weather[0].icon}.png" alt="Weather icon"> ${response.data.weather[0].main} (${response.data.weather[0].description})`),
         ).appendTo('#mainResultTableBody');
 
         var $tr = $('<tr>').append(
