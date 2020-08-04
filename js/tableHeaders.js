@@ -7,3 +7,8 @@ var mangadexHead = $('<tr>').append(
     $('<th>').text('Chapter'),
     $('<th>').text('Time'),
 );
+
+var wuxiaworldHead = $('<tr>').append(
+    $('<th>').text('Novel'),
+    $('<th>').text('Chapter'),
+);

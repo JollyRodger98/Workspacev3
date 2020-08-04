@@ -107,3 +107,16 @@ function parseMangadex(feed){
     });
     return newFeed
 }
+
+function parseWuxiaworld(feed){
+    var newFeed = [];
+    $.each(feed, function(i, item){
+        var entry = {
+            'novelTitle': item.category["#text"],
+            'chapterLink': item.guid["#text"],
+            'chapterTitle': item.title["#text"].split(/ - /)[1],
+        }    
+        newFeed.push(entry);    
+    });
+    return newFeed
+}

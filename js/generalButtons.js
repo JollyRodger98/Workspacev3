@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
     $( "#buttonWeather" ).click(function() {
-
         $("#mainResultTable tr").remove();
         var response = APIcallGET("https://api.openweathermap.org/data/2.5/weather?id=2661861&appid=3110630bf875a745670e7c443681ebed&units=metric")
         //weatherHead.appendTo('#mainResultTableHead');
@@ -34,11 +33,9 @@ $(document).ready(function(){
             $('<th scope="row">').text('Sunset/Sunrise:'),
             $('<td>').text(convertUnixTime(response.data.sys.sunset) + ' / ' + convertUnixTime(response.data.sys.sunrise)),
         ).appendTo('#mainResultTableBody');
-        
     });
 
     $( "#buttonJokes" ).click(function() {
-
         $("#mainResultTable tr").remove();
         var header = {
             "x-rapidapi-host": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com",
@@ -50,13 +47,9 @@ $(document).ready(function(){
         var $tr = $('<tr>').append(
             $('<td>').text(response.data.value),
         ).appendTo('#mainResultTableBody');
-        
     });     
 
-
-
     $( "#buttonMangdex" ).click(function() {
-
         $("#mainResultTable tr").remove();
         mangadexHead.appendTo('#mainResultTableHead');
         fetch('https://mangadex.org/rss/sQF2apzwyqSmWcTfVG7MY4nb8P9EtAUZ')
@@ -72,9 +65,23 @@ $(document).ready(function(){
                 ).appendTo('#mainResultTableBody');
             });
         });
-                               
     });
 
-    
+    $( "#buttonWuxiaworld" ).click(function() {
+        $("#mainResultTable tr").remove();
+        wuxiaworldHead.appendTo('#mainResultTableHead');
+        fetch('https://www.wuxiaworld.com/feed/chapters')
+        .then(response => response.text())
+        .then(data => {
+            var jsonObj = RSStoJSON(data);
+            var feed = parseWuxiaworld(jsonObj);
+            $.each(feed, function(i, item){
+                var $tr = $('<tr>').append(
+                    $('<td>').text(item.novelTitle),
+                    $('<td>').html('<a class="btn btn-sm btn-secondary text-light" href="' + item.chapterLink + '" target="_blank">' + item.chapterTitle + '</a>'),
+                ).appendTo('#mainResultTableBody');
+            });
+        });
+    });
 
 });
