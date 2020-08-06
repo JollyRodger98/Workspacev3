@@ -1,3 +1,12 @@
+/*
+**********************************************************
+*                                                        *
+*   All Functions and code used across multiple sites.   *
+*                                                        *
+**********************************************************
+*/
+
+// Default API call
 function APIcallGET(url, headers=null){
     $.ajax({
         url: url,
@@ -16,6 +25,7 @@ function APIcallGET(url, headers=null){
     return APIcallResponse;
 }
 
+// add a zero to single digit integers
 function addZero(digit){
     digit = String(digit);
     if (digit.length <= 1){
@@ -24,26 +34,24 @@ function addZero(digit){
     return digit
 }
 
-//dd.MM.YYYY hh:mm
+// convert unix timestamp to dd.MM.YYYY hh:mm
 function convertUnixFull(unixTime){
     var normalTime = new Date(unixTime * 1000);
     normalTime = addZero(normalTime.getHours()) + ':' + addZero(normalTime.getMinutes()) + ' ' + addZero(normalTime.getDate()) + '-' + addZero(normalTime.getMonth()) + '-' + normalTime.getFullYear();
     return normalTime
 }
 
-//hh:mm
+// convert unix timestamp to hh:mm
 function convertUnixTime(unixTime){
     var normalTime = new Date(unixTime * 1000);
     normalTime = addZero(normalTime.getHours()) + ':' + addZero(normalTime.getMinutes());
     return normalTime
 }
 
-// Changes XML to JSON
+// Changes XML to JSON, copied from https://davidwalsh.name/convert-xml-json
 function xmlToJson(xml) {
-
     // Create the return object
     var obj = {};
-
     if (xml.nodeType == 1) { // element
         // do attributes
         if (xml.attributes.length > 0) {
@@ -56,7 +64,6 @@ function xmlToJson(xml) {
     } else if (xml.nodeType == 3) { // text
         obj = xml.nodeValue;
     }
-
     // do children
     if (xml.hasChildNodes()) {
         for(var i = 0; i < xml.childNodes.length; i++) {
@@ -77,6 +84,7 @@ function xmlToJson(xml) {
     return obj;
 };
 
+// converts output from fetch RSS feed to JSON object
 function RSStoJSON(data){
     var xmlDoc = new window.DOMParser().parseFromString(data, "text/xml")
     var jsonObj = JSON.parse(JSON.stringify(xmlToJson(xmlDoc)));
@@ -84,6 +92,7 @@ function RSStoJSON(data){
     return jsonObj
 }
 
+// parse the Mangdex RSS feed JSON object to custom JSON
 function parseMangadex(feed){
     var newFeed = [];
     $.each(feed, function(i, item){
@@ -108,6 +117,7 @@ function parseMangadex(feed){
     return newFeed
 }
 
+// parse the Wuxiaworld RSS feed JSON object to custom JSON
 function parseWuxiaworld(feed){
     var newFeed = [];
     $.each(feed, function(i, item){
@@ -120,3 +130,21 @@ function parseWuxiaworld(feed){
     });
     return newFeed
 }
+
+// checks if scroll position is 20px or more and changes display state of backToTop button
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("backToTop").style.display = "block";
+    } else {
+        document.getElementById("backToTop").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
