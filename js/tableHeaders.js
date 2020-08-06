@@ -19,3 +19,8 @@ var topMoviesHead = $('<tr>').append(
     $('<th>').text('Title'),
     $('<th>').text('Description'),
 );
+
+var nyTimesHead = $('<tr>').append(
+    $('<th>').text('Cover'),
+    $('<th>').text('Summary'),
+);
