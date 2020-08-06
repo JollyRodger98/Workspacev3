@@ -90,7 +90,6 @@ $(document).ready(function(){
         var responsePage2 = APIcallGET('https://api.themoviedb.org/3/trending/movie/week?api_key=99dc569b01d5c0a096d15b2dde2633b8&page=2')
         var responseAllPages = []
         responseAllPages.push(responsePage1.data.results, responsePage2.data.results)
-        console.log(responseAllPages)
         var counter = 1;
         $.each(responseAllPages, function(j, list){
             $.each(list, function(i, item){
@@ -100,6 +99,29 @@ $(document).ready(function(){
                     $('<td class="p-1 align-middle " style="width:7rem;">').html('<a href="https://www.themoviedb.org/movie/' + item.id + '" target="_blank"><img class="img-thumbnail" src="https://image.tmdb.org/t/p/w92' + item.poster_path + '"></a>'),
                     $('<td>').html('<p style="width:38rem;">' + item.overview + '</p>'),
                 ).appendTo('#mainResultTableBody');
+            });
+        });
+    });
+
+    $( "#NYtimesMovies" ).click(function() {
+        $("#mainResultTable tr").remove();
+        nyTimesHead.appendTo('#mainResultTableHead');
+        fetch('http://rss.art19.com/the-daily')
+        .then(response => response.text())
+        .then(data => {
+            var jsonObj = RSStoJSON(data);
+            //console.log(jsonObj)
+            var feed = parseNYtimes(jsonObj);
+            var counter = 0;
+            $.each(feed, function(i, item){
+                    var $tr = $('<tr style="border-bottom: 2px solid var(--primary);">').append(
+                            $('<td colspan="2" class="h5">').text(item.title),
+                        ).appendTo('#mainResultTableBody');
+                        var $tr = $('<tr>').append(
+                            $('<td style="width:9rem;">').html('<a class="h5" href="' + item.url + '"><img class="img-thumbnail" src="' + item.cover + '"></a>'),
+                            $('<td>').html('<span>' + item.summary + '</span>'),
+                    ).appendTo('#mainResultTableBody');
+                counter++
             });
         });
     });
