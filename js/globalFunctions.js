@@ -131,6 +131,24 @@ function parseWuxiaworld(feed){
     return newFeed
 }
 
+function parseNYtimes(jsonObj){
+    var newFeed = [];
+    jsonObj.splice(100, jsonObj.length);
+    $.each(jsonObj, function(i, item){
+        var description = new String(item['itunes:summary']['#text']).split(/Background reading/)
+        description.splice(1, 0, '<br>Background reading')
+        description = description.join('')
+        var entry = {
+            'title': item['itunes:title']['#text'],
+            'summary': description,
+            'url': item['enclosure']['@attributes'].url,
+            'cover': item['itunes:image']['@attributes'].href,
+        }
+        newFeed.push(entry);
+    });
+    return newFeed
+}
+
 // checks if scroll position is 20px or more and changes display state of backToTop button
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
