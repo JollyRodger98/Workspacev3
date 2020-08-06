@@ -96,9 +96,9 @@ $(document).ready(function(){
             $.each(list, function(i, item){
                 var $tr = $('<tr>').append(
                     $('<td>').text(counter++ + '.'),
-                    $('<td class="p-1" style="width:7rem;">').html('<a href="https://www.themoviedb.org/movie/' + item.id + '" target="_blank"><img class="img-thumbnail" src="https://image.tmdb.org/t/p/w92' + item.poster_path + '"></a>'),
                     $('<td>').html('<h5>' + item.title + '</h5>'),
-                    $('<td>').text(item.overview),
+                    $('<td class="p-1 align-middle " style="width:7rem;">').html('<a href="https://www.themoviedb.org/movie/' + item.id + '" target="_blank"><img class="img-thumbnail" src="https://image.tmdb.org/t/p/w92' + item.poster_path + '"></a>'),
+                    $('<td>').html('<p style="width:38rem;">' + item.overview + '</p>'),
                 ).appendTo('#mainResultTableBody');
             });
         });
