@@ -55,7 +55,7 @@ $table-dark-border-color: #4d4d4d;
   z-index: 99; /* Make sure it does not overlap */
   outline: none; /* Remove outline */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 1rem;/* adding 0.5rem of padding */
+  padding: 0.8rem;/* adding 0.5rem of padding */
   line-height: 0; /* Removing line height */
   font-size: 30px; /* Increase font size */
 }

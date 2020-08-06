@@ -9948,7 +9948,7 @@ h3 {
   /* Remove outline */
   cursor: pointer;
   /* Add a mouse pointer on hover */
-  padding: 1rem;
+  padding: 0.8rem;
   /* adding 0.5rem of padding */
   line-height: 0;
   /* Removing line height */
