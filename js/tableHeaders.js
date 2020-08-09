@@ -32,3 +32,10 @@ var breedsHead = $('<tr>').append(
     $('<th>').text('Life span'),
 );
 
+var breedsHead = $('<tr>').append(
+    $('<th>').text('Name'),
+    $('<th>').text('Bred for'),
+    $('<th>').text('Group'),
+    $('<th>').text('Life span'),
+);
+

@@ -30,15 +30,4 @@ $(document).ready(function(){
         $('#imageSpan').append('<img class="img-fluid rounded border" src="' + response.data[0].url + '">');
     });
 
-
-
-    /*
-    $( "#dogSearchButton" ).click(function() {
-        var dogValue = document.getElementById("dogSearchField").value;
-        document.getElementById('dogSearchForm').reset();
-        console.log(dogValue)
-    });
-    */
-
-
 });
