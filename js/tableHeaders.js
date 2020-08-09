@@ -24,3 +24,11 @@ var nyTimesHead = $('<tr>').append(
     $('<th>').text('Cover'),
     $('<th>').text('Summary'),
 );
+
+var breedsHead = $('<tr>').append(
+    $('<th>').text('Name'),
+    $('<th>').text('Bred for'),
+    $('<th>').text('Group'),
+    $('<th>').text('Life span'),
+);
+

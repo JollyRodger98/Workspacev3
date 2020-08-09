@@ -163,12 +163,12 @@ function parseNYtimes(jsonObj){
 // take dogbreed and adds table to result table
 function buttonBreeds(breedName){
     $("#mainResultTable tr").remove();
+    $("#imageSpan img").remove();
     var header = {
         "x-api-key": "83f7a2a5-5a1c-40b6-8eb3-30009b1b424c"
     }
     var response = APIcallGET("https://api.thedogapi.com/v1/breeds/search?q=" + breedName, header)
     breedsHead.appendTo('#mainResultTableHead');
-    console.log(response)
     $.each(response.data, function(i, item){
         var $tr = $('<tr>').append(
             $('<td>').html(modalButton(item.id, item.name) + modalBox(item.id, item.name)),
