@@ -6,6 +6,7 @@
 **********************************************************
 */
 
+
 // Default API call
 function APIcallGET(url, headers=null){
     $.ajax({
@@ -25,6 +26,7 @@ function APIcallGET(url, headers=null){
     return APIcallResponse;
 }
 
+
 // add a zero to single digit integers
 function addZero(digit){
     digit = String(digit);
@@ -34,6 +36,7 @@ function addZero(digit){
     return digit
 }
 
+
 // convert unix timestamp to dd.MM.YYYY hh:mm
 function convertUnixFull(unixTime){
     var normalTime = new Date(unixTime * 1000);
@@ -41,12 +44,14 @@ function convertUnixFull(unixTime){
     return normalTime
 }
 
+
 // convert unix timestamp to hh:mm
 function convertUnixTime(unixTime){
     var normalTime = new Date(unixTime * 1000);
     normalTime = addZero(normalTime.getHours()) + ':' + addZero(normalTime.getMinutes());
     return normalTime
 }
+
 
 // Changes XML to JSON, copied from https://davidwalsh.name/convert-xml-json
 function xmlToJson(xml) {
@@ -84,6 +89,7 @@ function xmlToJson(xml) {
     return obj;
 };
 
+
 // converts output from fetch RSS feed to JSON object
 function RSStoJSON(data){
     var xmlDoc = new window.DOMParser().parseFromString(data, "text/xml")
@@ -91,6 +97,7 @@ function RSStoJSON(data){
     jsonObj = jsonObj.rss.channel.item
     return jsonObj
 }
+
 
 // parse the Mangdex RSS feed JSON object to custom JSON
 function parseMangadex(feed){
@@ -117,6 +124,7 @@ function parseMangadex(feed){
     return newFeed
 }
 
+
 // parse the Wuxiaworld RSS feed JSON object to custom JSON
 function parseWuxiaworld(feed){
     var newFeed = [];
@@ -131,6 +139,8 @@ function parseWuxiaworld(feed){
     return newFeed
 }
 
+
+// parse the Wuxiaworld RSS feed JSON object to custom JSON
 function parseNYtimes(jsonObj){
     var newFeed = [];
     jsonObj.splice(100, jsonObj.length);
@@ -149,6 +159,69 @@ function parseNYtimes(jsonObj){
     return newFeed
 }
 
+
+// take dogbreed and adds table to result table
+function buttonBreeds(breedName){
+    $("#mainResultTable tr").remove();
+    var header = {
+        "x-api-key": "83f7a2a5-5a1c-40b6-8eb3-30009b1b424c"
+    }
+    var response = APIcallGET("https://api.thedogapi.com/v1/breeds/search?q=" + breedName, header)
+    breedsHead.appendTo('#mainResultTableHead');
+    console.log(response)
+    $.each(response.data, function(i, item){
+        var $tr = $('<tr>').append(
+            $('<td>').html(modalButton(item.id, item.name) + modalBox(item.id, item.name)),
+            $('<td>').text(item.bred_for),
+            $('<td>').text(item.breed_group),
+            $('<td>').html('<p style="width:6rem;">' + item.life_span + '</p>'),
+        ).appendTo('#mainResultTableBody');
+    });
+}
+
+
+// takes breedID and adds img src in modal box
+function imgModalBox(breedID){
+    var header = {
+        "x-api-key": "83f7a2a5-5a1c-40b6-8eb3-30009b1b424c"
+    }
+    var response = APIcallGET("https://api.thedogapi.com/v1/images/search?breed_id=" + breedID, header)
+
+    document.getElementById('breedImg' + breedID).src = response.data[0].url
+}
+
+
+//Returns dynamic button with breeID
+function modalButton(breedID, dogName){
+    return '<button onclick="imgModalBox(' + breedID + ')" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#' + 'breedModal' + breedID + '">' + dogName + '</button>'
+}
+
+
+//Return modalbox with custom information
+function modalBox(breedID, dogName){
+    return  '<div class="modal fade" id="' + 'breedModal' + breedID + '" tabindex="-1" role="dialog" aria-labelledby="dogBreedModal" aria-hidden="true">'+
+
+                '<div class="modal-dialog " role="document">'+
+                    '<div class="modal-content bg-secondary">'+
+                        '<div class="modal-header">'+
+                            '<h5 class="modal-title" id="exampleModalLabel">' + dogName + '</h5>'+
+                            '<button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">'+
+                                '<span aria-hidden="true">&times;</span>'+
+                            '</button>'+
+                        '</div>'+
+                        '<div class="modal-body d-flex justify-content-center">'+
+                            '<img id="breedImg' + breedID + '" style="width:25rem;" src="" alt="' + dogName + '">'+
+                        '</div>'+
+                        '<div class="modal-footer">'+
+                            '<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+    
+            '</div>'
+}
+
+
 // checks if scroll position is 20px or more and changes display state of backToTop button
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -158,11 +231,13 @@ function scrollFunction() {
     }
 }
 
+
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
