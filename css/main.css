@@ -1,11 +1,5 @@
 @charset "UTF-8";
 /*
-$theme-colors: (
-    "primary": #00093b,
-    "secondary": #72a0c1,
-  );
-*/
-/*
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -9931,6 +9925,14 @@ h3 {
 
 .navbar .dropdown.show a {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-group.show .dropdown-menu.show {
+  background-color: #00093b;
+}
+
+.btn-group.show .dropdown-menu.show button:hover {
+  background-color: black;
 }
 
 #backToTop {

@@ -1,9 +1,3 @@
-/*
-$theme-colors: (
-    "primary": #00093b,
-    "secondary": #72a0c1,
-  );
-*/
 
 $primary:#00093b;
 $secondary: #4d4d4d;
@@ -43,9 +37,18 @@ $table-dark-border-color: #4d4d4d;
   color: rgba(255, 255, 255, 0.75);
 }
 
-  .navbar .dropdown.show a { 
+.navbar .dropdown.show a { 
   color: rgba(255, 255, 255, 0.5);
 }
+
+.btn-group.show .dropdown-menu.show{
+  background-color: $primary;
+}
+
+.btn-group.show .dropdown-menu.show button:hover{
+  background-color: darken($link-color, 15%);
+}
+
 
 #backToTop {
   display: none; /* Hidden by default */
