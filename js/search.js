@@ -9,10 +9,13 @@ $(document).ready(function(){
 
     function searchBooks(searchValue){
         var response = APIcallGET('https://www.googleapis.com/books/v1/volumes?key=AIzaSyBR64x3mikfahvV4buG6E2tIMPPVqgxQ14&q=' + searchValue)
-        jokeHead.appendTo('#mainResultTableHead');
+        $('#mainResultTableHead').append('<tr><th colspan="3">Result for: "' + searchValue + '"</th></tr>')
+        bookHead.appendTo('#mainResultTableHead');
         $.each(response.data.items, function(i, item){
             var $tr = $('<tr>').append(
+                $('<td>').html( '<img class="img-thumbnail" src="' + item.volumeInfo.imageLinks.smallThumbnail + '">'),
                 $('<td>').text(item.volumeInfo.title),
+                $('<td>').text(item.volumeInfo.publishedDate),
             ).appendTo('#mainResultTableBody');
         });
         console.log(response)
