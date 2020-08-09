@@ -65,3 +65,9 @@ $table-dark-border-color: #4d4d4d;
   border-color: transparent;
   //color: $primary;
 }
+
+@media only screen and (min-width : 1200px) {
+  .border-xl-right{
+    border-right: 1px solid white;
+  }
+}

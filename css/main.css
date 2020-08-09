@@ -9960,4 +9960,10 @@ h3 {
   border-color: transparent;
 }
 
+@media only screen and (min-width: 1200px) {
+  .border-xl-right {
+    border-right: 1px solid white;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
