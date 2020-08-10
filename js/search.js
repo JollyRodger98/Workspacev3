@@ -36,7 +36,7 @@ $(document).ready(function(){
 
     function searchBooks(searchValue){
         var response = APIcallGET('https://www.googleapis.com/books/v1/volumes?key=AIzaSyBR64x3mikfahvV4buG6E2tIMPPVqgxQ14&q=' + searchValue)
-        console.log(response)
+        //console.log(response)
         $('#mainResultTableHead').append('<tr><th colspan="3">Results for: "' + searchValue + '"</th></tr>')
         bookHead.appendTo('#mainResultTableHead');
         $.each(response.data.items, function(i, item){
